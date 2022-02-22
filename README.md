@@ -105,7 +105,7 @@ Se dede realizar una escena que incluya
 
         ```
 
-- Se modificaron también los métodos de takeHeal y takeDamage, en caso de que se requieran utilizar por mecánicas del juego.
+- Las animaciones están en desarrollo, debido a que no tengo mucho conocimiento con state machines de multiples capas, para animaciones en simultaneo
 ## Autor
 
 - [@Josue Cea](https://www.github.com/Nifrith)
