@@ -1,4 +1,4 @@
-# Camera-Cea - Pequeña escena con vectores [![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white)](https://unity.com/es)
+# Vectores-Cea - Pequeña escena con vectores [![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white)](https://unity.com/es)
 
 Sexta consigna . curso coderhouse: Desarrollo de videojuegos, clase Condiciones, operadores y matemática vectorial
 
