@@ -11,7 +11,7 @@ public class BleetankController : MonoBehaviour
     private Vector3 playerVelocity;
 
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 5.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     public float clockwise = 100.0f;
@@ -59,7 +59,7 @@ public class BleetankController : MonoBehaviour
 
         if(vertical > 0){
             controller.Move(transform.forward * Time.deltaTime * playerSpeed);
-            playerSpeed = 2.0f;
+            playerSpeed = 5.0f;
             m_Animator.SetBool ("isWalking", isWalking);
         } else if (vertical < 0){
             controller.Move(-transform.forward * Time.deltaTime * playerSpeed);
