@@ -9,7 +9,7 @@ Se dede realizar una escena que incluya
 - El personaje debe colisionar correctamente con el piso
 - Al atravesar el portal, el personaje debe hacerse más pequeño y si vuelve a pasar por el, debe regresar a su tamaño normal
 - Se debe crear una pared dorada. Al colisionar por más de 2 segundos con la pared, debe moverse a otra ubicación (al azar o pre establecida), cambiando también su rotación
-- Cuando el personaje colisione con algún otro gameobject, debe mostrar su nombre y si tiene o no un componente shrinker
+- Cuando el personaje colisione con algún otro gameobject, debe mostrar su nombre y si tiene o no un componente shrinker (en este caso, TeleportController)
 
 ## Desarrollo de actividad
 
