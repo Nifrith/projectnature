@@ -16,6 +16,8 @@ public class BleetankController : MonoBehaviour
     private float gravityValue = -9.81f;
     public float clockwise = 100.0f;
     public float counterClockwise = -100.0f;
+
+    public bool hasTeleported = false;
     
     
 
@@ -24,6 +26,7 @@ public class BleetankController : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         controller.center = new Vector3(0, 1, 0);
+        controller.detectCollisions = true;
         
     }
 
@@ -34,9 +37,7 @@ public class BleetankController : MonoBehaviour
         {
             playerVelocity.y = 0f;
         } 
-       
-    
-    
+        
     Move();
     Rotate();
     Jump();
@@ -109,5 +110,8 @@ public class BleetankController : MonoBehaviour
             m_Animator.SetTrigger("Attack2");
         } 
     }
+
+  
+
 
 }
