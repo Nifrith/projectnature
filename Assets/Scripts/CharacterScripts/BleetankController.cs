@@ -58,11 +58,14 @@ public class BleetankController : MonoBehaviour
         bool isWalking = hasVerticalInput;
         bool isRunning = hasVerticalInput;
 
+
+
         if(vertical > 0){
             controller.Move(transform.forward * Time.deltaTime * playerSpeed);
             playerSpeed = 5.0f;
-            m_Animator.SetBool ("isWalking", isWalking);
+            m_Animator.SetBool ("isWalking", true);
         } else if (vertical < 0){
+            m_Animator.SetBool("isWalking", false);
             controller.Move(-transform.forward * Time.deltaTime * playerSpeed);
             playerSpeed = 1.3f;
             m_Animator.SetBool ("isWalkingBackwards", isWalking);
