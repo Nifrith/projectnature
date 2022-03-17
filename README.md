@@ -23,7 +23,7 @@ Nadie podría haber previsto la gran destrucción que el reino de Vulparia sembr
 ## Documento de historia y argumento
 
 - Se genero un documento donde se detalla la historia base y las mecánicas del juego
-    - [![Vulparia: Blitank el zorro](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.alamy.es%2Fdiseno-ilustracion-logotipo-exclusivo-de-fox-fox-fox-logo-icono-icono-diseno-ilustracion-image328405449.html&psig=AOvVaw15-HsoIpGaYYiPKUfJ6s1q&ust=1647639998135000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJC2sbqPzvYCFQAAAAAdAAAAABAJ)](https://docs.google.com/document/d/1Nj_-hYZ1C_5NhN_16P5rg60_wdV-52l8I4x7OkKb_Po/edit?usp=sharing)
+    - [Vulparia: Blitank el zorro // documento](https://docs.google.com/document/d/1Nj_-hYZ1C_5NhN_16P5rg60_wdV-52l8I4x7OkKb_Po/edit?usp=sharing)
 
 
 ## Autor
