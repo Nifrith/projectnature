@@ -4,45 +4,67 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour
 {
-    GameObject[] positionRanges;
-    [SerializeField] int maxYRotation = 5;
-    [SerializeField] int maxZRotation = 5;
-    private float counter = 0f;
+    GameObject iceWall;
+    private float triggerCounter = 0f;
+    private float wallCounter = 0f;
+    private Vector3 scale;
     // Start is called before the first frame update
     void Start()
     {
-        positionRanges = GameObject.FindGameObjectsWithTag("WallSpawn");
+        iceWall = GameObject.FindGameObjectWithTag("WallSpawn");
+        Debug.Log(iceWall.name);
+        scale = gameObject.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(wallCounter > 0f){
+            wallCounter -= Time.deltaTime;
+        }
+       else if(wallCounter <= 0){
+           restoreIceWall();
+       }
     }
 
     void OnTriggerStay(Collider other)
     {
-        counter += Time.deltaTime;
-        Debug.Log(counter);
-        if (counter >= 2f)
+        scale.y = 0.5f;
+        triggerCounter += Time.deltaTime;
+        Debug.Log(triggerCounter);
+        if (triggerCounter >= 2f)
         {
-            ChangeLocation();
+            wallCounter = 6f;
+            Debug.Log("La muralla se destruyo, tienes "+ wallCounter +" segundos");
+
+            transform.localScale = scale;
+            destroyIceWall();
         }
+
     }
     
 
     void OnTriggerExit()
     {
-        counter = 0;
+        triggerCounter = 0;
+        
     }
 
-    void ChangeLocation()
+    void destroyIceWall()
     {
-        int index = Random.Range(0, positionRanges.Length);
-        transform.position = positionRanges[index].transform.position;
-        float zRotation = Random.Range(-maxZRotation, maxZRotation);
-        float yRotation = Random.Range(-maxYRotation, maxYRotation);
-        transform.Rotate(new Vector3(0, yRotation, zRotation));
-        counter = 0;
+        if(iceWall.activeSelf){
+        iceWall.SetActive(false);
+        }
+    }
+
+    void restoreIceWall()
+    {
+        if(iceWall.activeSelf == false){
+            scale.y = 1f;
+            iceWall.SetActive(true);
+            transform.localScale = scale;
+            wallCounter = 0f;
+        }
+        
     }
 }

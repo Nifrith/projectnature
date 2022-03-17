@@ -11,16 +11,15 @@ public class BleetankController : MonoBehaviour
     private Vector3 playerVelocity;
 
     private bool groundedPlayer;
-    private float playerSpeed = 5.0f;
+    private bool isRunning = false;
+    private float playerSpeed;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     public float clockwise = 100.0f;
     public float counterClockwise = -100.0f;
 
+    // Flag to know if character has been teleported or not
     public bool hasTeleported = false;
-    
-    
-
     private void Start()
     {   
         m_Animator = GetComponent<Animator>();
@@ -37,39 +36,63 @@ public class BleetankController : MonoBehaviour
         {
             playerVelocity.y = 0f;
         } 
-        
-    Move();
-    Rotate();
-    Jump();
+        // Check if run key is pressed
+        isRunning = Run();
 
-    Attack1();
-    Attack2();
+
+        Move(isRunning);
+        Rotate();
+        Jump();
+
+        Attack1();
+        Attack2();
     
     }
 
 
 
-    void Move(){
+    void Move(bool isRunning){
 
         float vertical = Input.GetAxis ("Vertical");
-
         Vector3 move = new Vector3(0, 0, vertical);
-        bool hasVerticalInput = !Mathf.Approximately (vertical, 0f);
-        bool isWalking = hasVerticalInput;
-        bool isRunning = hasVerticalInput;
 
+        if(isRunning){
+            playerSpeed = 6.0f;
+            controller.Move(transform.forward * Time.deltaTime * playerSpeed);
+            m_Animator.SetFloat("speed", playerSpeed);
+        } else { 
+            if(vertical > 0){
 
+            playerSpeed = 3.0f;
+            controller.Move(transform.forward * Time.deltaTime * playerSpeed);
+            m_Animator.SetFloat ("speed", playerSpeed);
+
+            
+            } else if (vertical < 0){
+
+            playerSpeed = 1.7f;
+            controller.Move(-transform.forward * Time.deltaTime * playerSpeed);
+            m_Animator.SetFloat ("speed", playerSpeed);
+
+             } else {
+            m_Animator.SetFloat("speed", 1);
+            }
+        }
+        
 
         if(vertical > 0){
             controller.Move(transform.forward * Time.deltaTime * playerSpeed);
             playerSpeed = 5.0f;
-            m_Animator.SetBool ("isWalking", true);
-        } else if (vertical < 0){
-            m_Animator.SetBool("isWalking", false);
-            controller.Move(-transform.forward * Time.deltaTime * playerSpeed);
-            playerSpeed = 1.3f;
-            m_Animator.SetBool ("isWalkingBackwards", isWalking);
+            m_Animator.SetFloat ("speed", playerSpeed);
+
             
+        } else if (vertical < 0){
+            controller.Move(-transform.forward * Time.deltaTime * playerSpeed);
+            playerSpeed = 1.7f;
+            m_Animator.SetFloat ("speed", playerSpeed);
+
+        } else {
+            m_Animator.SetFloat("speed", 1);
         }
 
     }
@@ -92,7 +115,6 @@ public class BleetankController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            m_Animator.SetBool("isWalking", false);
                     
         } 
 
@@ -104,17 +126,27 @@ public class BleetankController : MonoBehaviour
 
     void Attack1(){
         if(Input.GetButtonDown("Fire1")){
-            m_Animator.SetTrigger("Attack1");
+            m_Animator.SetFloat("attack", 1f);
         } 
     }
 
     void Attack2(){
         if(Input.GetButtonDown("Fire2")){
-            m_Animator.SetTrigger("Attack2");
+            m_Animator.SetFloat("attack", 2f);
         } 
     }
 
-  
+    private bool Run(){
+
+            if (Input.GetButtonDown("Run")) {
+              isRunning = true;
+            }
+            else if (Input.GetButtonUp("Run")) {
+              isRunning = false;
+            }
+
+            return isRunning;
+    }
 
 
 }

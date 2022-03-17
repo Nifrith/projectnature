@@ -1,25 +1,30 @@
-# Textura-Cea - Texturado y utilización de luces [![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white)](https://unity.com/es)
+# Entrega1-Cea - Primera pre entrega videojuego coderhouse [![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white)](https://unity.com/es)
 
-Novena consigna . curso coderhouse: Luces, materiales y texturado
+## Vulparia: Blitank el zorro
 
-## Consigna
-
-Se dede realizar una escena que incluya 
-
-- 4 luces distintas
-- Afectar a distintos objetos
-- Incorporar 2 objetos que sean transparentes y 2 opacos, utilizando texturas en albedo y normal map
+Nadie podría haber previsto la gran destrucción que el reino de Vulparia sembraría en Spinnia, cada uno de los habitantes Spinnel fue asesinado.
 
 ## Desarrollo de actividad
 
-- Se añade textura opaca a todo el piso del escenario
-- Se añade textura opaca a todas las montañas del escenario
-- Se usa una luz de tipo point para iluminar el camino que recorre el personaje
-- Se añaden luces a hongos para hacer más creible el entorno.
-- Se añade textura transparente a toda el agua del escenario.
-- Se añade textura transparente a vidrio protegiendo cofre.
+- Se añaden temporizadores para ciclo día y noche
+    - El ciclo día y noche cambia la iluminación. Se utiliza una luz direccional y se modifica su intensidad
+    - Se utiliza un switch usando de referencia la hora del día, para ajustar la intensidad de la luz.
+- Se añadió un sistema de cámaras mediante cinemachine
+- Se mantiene el funcionamiento del AudioSource
+- Se utiliza solo un script para diferenciar el comportamiento de los mobs
+- Se añade temporizador para porton antes de boss Spinnelord
+- Se modifica el entorno para hacerlo calzar con la historia.
+- Se corrige el funcionamiento de las animaciones del personaje
+    - Animación IDLE
+    - Animación caminar
+    - Animación correr
 
-- Los scripts se mantienen igual.
+
+## Documento de historia y argumento
+
+- Se genero un documento donde se detalla la historia base y las mecánicas del juego
+    - [![Vulparia: Blitank el zorro]](https://docs.google.com/document/d/1Nj_-hYZ1C_5NhN_16P5rg60_wdV-52l8I4x7OkKb_Po/edit?usp=sharing)
+    
 
 ## Autor
 
