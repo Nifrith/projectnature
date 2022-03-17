@@ -12,7 +12,7 @@ Nadie podría haber previsto la gran destrucción que el reino de Vulparia sembr
 - Se añadió un sistema de cámaras mediante cinemachine
 - Se mantiene el funcionamiento del AudioSource
 - Se utiliza solo un script para diferenciar el comportamiento de los mobs
-- Se añade temporizador para porton antes de boss Spinnelord
+- Se añade temporizador para porton antes de boss Spinnelord. Se debe presionar sobre el pedazo de hielo con el personaje, por dos segundos.
 - Se modifica el entorno para hacerlo calzar con la historia.
 - Se corrige el funcionamiento de las animaciones del personaje
     - Animación IDLE
