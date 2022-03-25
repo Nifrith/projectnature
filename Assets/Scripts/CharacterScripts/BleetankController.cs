@@ -55,7 +55,7 @@ public class BleetankController : MonoBehaviour
 
         float vertical = Input.GetAxis ("Vertical");
         Vector3 move = new Vector3(0, 0, vertical);
-
+        Input.GetKeyDown(KeyCode.J);
         if(isRunning){
             playerSpeed = 6.0f;
             controller.Move(transform.forward * Time.deltaTime * playerSpeed);

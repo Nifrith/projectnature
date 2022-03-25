@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterCollisionController : MonoBehaviour
 {
@@ -23,16 +24,13 @@ public class CharacterCollisionController : MonoBehaviour
     // Update is called once per frame
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(isShowingColliderNames){
-            Debug.Log("Collider: " + hit.collider);
+        if(hit.transform.tag == "Enemy")
+        {
+            EnemyManager.KilledEnemy(hit.gameObject);
+            hit.gameObject.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter(Collider other) {     
-        if(other.gameObject.TryGetComponent(out TeleportController controller)){
-             Debug.Log("Se ha colisionado con gameobject que contiene TeleportController");
-        }
-    }
 
     public bool GetTeleported(){
         return hasTeleported;
