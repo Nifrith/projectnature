@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
             
           SoundManager.instance = this;
           DontDestroyOnLoad(gameObject);
-         _audioSource = GetComponents<AudioSource>();
+         _audioSource = FindObjectsOfType<AudioSource>();
 
         } else {
 
@@ -37,20 +37,27 @@ public class SoundManager : MonoBehaviour
          // Check the scene name as a conditional.
          switch (buildIndex)
          {
-         // overworld scene: battle music have to end
+         // main menu music
          case 0:
               StopMusic(1);
               _audioSource[buildIndex].pitch = 0.8f;
               _audioSource[buildIndex].Play();
              break;
-         // Battle scene : overworld music should be pause   
+         // overworldMusic, battle music have to end 
          case 1:
-              PauseMusic(0);
-              int index = Random.Range (0, battle.Length);
-              _audioSource[buildIndex].clip = battle[index];
+              StopMusic(2);
+              _audioSource[buildIndex].pitch = 0.8f;
               _audioSource[buildIndex].Play();
              break;
+
+         case 2:
+            PauseMusic(1);
+            int index = Random.Range (0, battle.Length);
+            _audioSource[buildIndex].clip = battle[index];
+            _audioSource[buildIndex].Play();
+            break;
          }
+         
     }
  
     public static void PauseMusic(int index)
