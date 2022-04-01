@@ -1,10 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class EnemyManager : MonoBehaviour
 { 
     public static EnemyManager instance;
 
+    public GameObject enemiesLeftText;
+    public static TextMeshProUGUI questText;
 
     public GameObject Exit;
 
@@ -31,7 +35,8 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
-        Debug.Log(Enemies.Count + " Enemies Left");
+        questText = enemiesLeftText.GetComponent<TextMeshProUGUI>();
+        questText.text = "Derrota a los enemigos para llegar al jefe // Queda/n "+Enemies.Count+" enemigo/s"; 
     }
 
     public static void KilledEnemy(GameObject Enemy)
@@ -40,6 +45,7 @@ public class EnemyManager : MonoBehaviour
         Enemies.Remove(Enemy);
 
         Debug.Log(Enemies.Count + " Enemies Left");
+         questText.text = "Derrota a los enemigos para llegar al jefe // Queda/n "+Enemies.Count+" enemigo/s"; 
 
     }
 
@@ -62,7 +68,7 @@ public class EnemyManager : MonoBehaviour
         if (AreOpponentsDead() == true)
         {
             OpenDoor();
-            Debug.Log("All Enemies defeated");
+            questText.text = "Todos los enemigos han sido derrotados, ya puedes pelear contra el jefe ";
         }
 
 
